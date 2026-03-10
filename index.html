@@ -11,94 +11,126 @@ a:hover{text-decoration:underline}
 /* ── Sticky header ── */
 .site-header{
   position:sticky;top:0;z-index:100;
-  background:rgba(15,17,23,0.92);backdrop-filter:blur(10px);
-  border-bottom:1px solid #1e2535;padding:14px 24px;
-  display:flex;align-items:center;gap:20px;flex-wrap:wrap
+  background:rgba(15,17,23,0.95);backdrop-filter:blur(10px);
+  border-bottom:1px solid #1e2535;padding:12px 16px;
+  display:flex;align-items:center;gap:12px;flex-wrap:wrap
 }
-.site-header h1{font-size:1.15em;font-weight:700;color:#f1f5f9;white-space:nowrap}
-.site-header h1 small{font-size:0.6em;font-weight:400;color:#64748b;margin-left:8px}
-.stats-pills{display:flex;gap:8px;flex-wrap:wrap;margin-left:auto}
+.site-header h1{font-size:1.05em;font-weight:700;color:#f1f5f9}
+.site-header h1 small{font-size:0.6em;font-weight:400;color:#64748b;margin-left:6px}
+.stats-pills{display:flex;gap:6px;flex-wrap:wrap;margin-left:auto}
 .pill{background:#1e2535;color:#94a3b8;border-radius:20px;
-      padding:4px 12px;font-size:0.75em;font-weight:500;white-space:nowrap}
+      padding:3px 10px;font-size:0.72em;font-weight:500;white-space:nowrap}
 .pill b{color:#e2e8f0}
 .pill.warn b{color:#f87171}
 
 /* ── Main layout ── */
-.page-wrap{max-width:1280px;margin:0 auto;padding:24px 20px}
+.page-wrap{max-width:1280px;margin:0 auto;padding:16px 12px}
 
 /* ── Filter bar ── */
-.filter-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px;align-items:center}
-.filter-bar span{font-size:0.78em;color:#64748b;margin-right:4px}
+.filter-bar{
+  display:flex;gap:8px;align-items:center;
+  margin-bottom:20px;
+  overflow-x:auto;-webkit-overflow-scrolling:touch;
+  padding-bottom:6px;scrollbar-width:none
+}
+.filter-bar::-webkit-scrollbar{display:none}
+.filter-bar span{font-size:0.78em;color:#64748b;white-space:nowrap;margin-right:2px}
 .filter-btn{
   background:#1e2535;border:1px solid #2d3748;color:#94a3b8;
-  border-radius:20px;padding:5px 14px;font-size:0.78em;cursor:pointer;
-  font-family:inherit;transition:all .15s
+  border-radius:20px;padding:6px 14px;font-size:0.78em;cursor:pointer;
+  font-family:inherit;transition:all .15s;white-space:nowrap;flex-shrink:0
 }
 .filter-btn:hover,.filter-btn.active{
   background:#2563eb;border-color:#2563eb;color:#fff
 }
 
 /* ── Analysis grid ── */
-.analysis-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:28px}
-@media(max-width:700px){.analysis-grid{grid-template-columns:1fr}}
-.analysis-box{background:#161b27;border-radius:12px;padding:22px 24px;
+.analysis-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:24px}
+.analysis-box{background:#161b27;border-radius:12px;padding:18px 20px;
               border:1px solid #1e2535}
 .analysis-box.today{border-top:3px solid #2563eb}
 .analysis-box.expect{border-top:3px solid #059669}
-.analysis-box .box-label{font-size:0.7em;font-weight:600;text-transform:uppercase;
+.analysis-box .box-label{font-size:0.68em;font-weight:600;text-transform:uppercase;
                           letter-spacing:.1em;color:#64748b;margin-bottom:4px}
-.analysis-box h2{font-size:1.05em;font-weight:700;color:#f1f5f9;margin-bottom:14px}
-.analysis-box ul{padding-left:18px}
-.analysis-box li{margin-bottom:10px;line-height:1.6;font-size:0.875em;color:#cbd5e1}
+.analysis-box h2{font-size:1em;font-weight:700;color:#f1f5f9;margin-bottom:12px}
+.analysis-box ul{padding-left:16px}
+.analysis-box li{margin-bottom:9px;line-height:1.6;font-size:0.855em;color:#cbd5e1}
 
 /* ── Article cards ── */
-.cards-section{display:flex;flex-direction:column;gap:16px}
+.cards-section{display:flex;flex-direction:column;gap:14px}
 .card{
   background:#161b27;border-radius:12px;
   border:1px solid #1e2535;
-  display:flex;gap:0;overflow:hidden;
+  display:flex;flex-direction:row;gap:0;overflow:hidden;
   transition:border-color .15s,box-shadow .15s
 }
 .card:hover{border-color:#2d3748;box-shadow:0 4px 24px rgba(0,0,0,.4)}
 .card.biased{border-left:3px solid #ef4444}
-.card[data-source]{display:flex}
 
-.card-image{flex:0 0 280px;max-width:280px;position:relative}
+.card-image{flex:0 0 260px;max-width:260px;position:relative}
 .card-image img{width:100%;height:100%;object-fit:cover;display:block}
-.card-image .no-img{width:100%;height:180px;background:#1e2535;
-                    display:flex;align-items:center;justify-content:center;color:#374151}
+.card-image .no-img{width:100%;height:160px;background:#1e2535;
+                    display:flex;align-items:center;justify-content:center;
+                    color:#374151;font-size:0.8em}
 
-.card-body{flex:1;padding:18px 20px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.card-body{flex:1;padding:16px 18px;display:flex;flex-direction:column;gap:9px;min-width:0}
 
 .card-top{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .source-badge{
-  border-radius:4px;padding:3px 10px;font-size:0.7em;font-weight:600;
+  border-radius:4px;padding:3px 10px;font-size:0.68em;font-weight:600;
   color:#fff;letter-spacing:.02em;white-space:nowrap
 }
-.date-label{font-size:0.75em;color:#64748b}
+.date-label{font-size:0.72em;color:#64748b}
 
-.card-title{font-size:1em;font-weight:600;line-height:1.45;color:#f1f5f9}
-.card-summary{font-size:0.855em;color:#94a3b8;line-height:1.65}
+.card-title{font-size:0.97em;font-weight:600;line-height:1.45;color:#f1f5f9}
+.card-summary{font-size:0.84em;color:#94a3b8;line-height:1.65}
 .read-link{font-size:0.8em;color:#60a5fa;font-weight:500}
 
 .bias-tags{display:flex;gap:6px;flex-wrap:wrap}
-.bias-badge{border-radius:4px;padding:2px 9px;font-size:0.72em;
+.bias-badge{border-radius:4px;padding:2px 9px;font-size:0.7em;
             font-weight:500;color:#fff;white-space:nowrap}
 
 .bias-panel{background:#1a1f2e;border:1px solid #2d3748;border-radius:8px;
-            padding:14px 16px;margin-top:2px}
-.bias-panel .bp-label{font-size:0.7em;font-weight:700;text-transform:uppercase;
+            padding:12px 14px;margin-top:2px}
+.bias-panel .bp-label{font-size:0.68em;font-weight:700;text-transform:uppercase;
                        letter-spacing:.08em;color:#f87171;margin-bottom:8px;display:block}
-.bias-panel .bp-expl{font-size:0.82em;color:#cbd5e1;line-height:1.6;margin-bottom:10px}
+.bias-panel .bp-expl{font-size:0.8em;color:#cbd5e1;line-height:1.6;margin-bottom:10px}
 .who-box{background:#1e1a0e;border:1px solid #44370a;border-radius:6px;
-         padding:10px 13px;font-size:0.8em;color:#fcd34d;line-height:1.55}
+         padding:9px 12px;font-size:0.78em;color:#fcd34d;line-height:1.55}
 .who-box b{color:#fde68a}
 
 /* ── Scrollbar ── */
-::-webkit-scrollbar{width:8px}
+::-webkit-scrollbar{width:6px}
 ::-webkit-scrollbar-track{background:#0f1117}
 ::-webkit-scrollbar-thumb{background:#2d3748;border-radius:4px}
 ::-webkit-scrollbar-thumb:hover{background:#4a5568}
+
+/* ── Mobile (max 640px) ── */
+@media(max-width:640px){
+  .site-header{padding:10px 12px;gap:8px}
+  .site-header h1{font-size:0.95em}
+  .stats-pills{gap:4px}
+  .pill{font-size:0.68em;padding:2px 8px}
+
+  .page-wrap{padding:12px 10px}
+
+  .analysis-grid{grid-template-columns:1fr}
+
+  .card{flex-direction:column}
+  .card-image{flex:none;max-width:100%;width:100%;height:200px}
+  .card-image img{height:200px;width:100%;object-fit:cover}
+  .card-image .no-img{height:120px}
+  .card-body{padding:14px 14px}
+  .card-title{font-size:0.95em}
+  .card-summary{font-size:0.82em}
+}
+
+/* ── Tablet (641px – 900px) ── */
+@media(min-width:641px) and (max-width:900px){
+  .card-image{flex:0 0 200px;max-width:200px}
+  .analysis-grid{grid-template-columns:1fr}
+  .page-wrap{padding:16px 14px}
+}
 </style>
 
 <script>
@@ -127,23 +159,23 @@ function filterCards(source) {
     <div class='box-label'>AI Analysis</div>
     <h2>Today in the News</h2>
    <ul>
-<li>U.S. Defense Secretary Pete Hegseth announced what he described as the "most intense" day of U.S. strikes on Iran since the war began 11 days ago, stating the objective is to permanently eliminate Iran's capacity to obtain nuclear weapons.</li>
-<li>Israel launched what the IDF described as an "additional wave" of strikes on Iranian targets, including in Tehran; Iran's UN ambassador reported a death toll exceeding 1,300 people, with nearly 10,000 civilian sites hit including approximately 8,000 residential homes. The New York Times cited a figure of more than 1,800 total deaths in the war.</li>
-<li>The Pentagon confirmed that 140 U.S. service members have been wounded since the conflict began, with eight in critical condition and seven Americans killed; U.S. forces also struck 16 Iranian mine-laying vessels near the Strait of Hormuz oil transit route, which is now effectively closed to shipping.</li>
-<li>Lebanon's President Aoun called for talks with Israel to end the renewed Hezbollah-Israel fighting, which has displaced more than 100,000 people in 24 hours; Israel struck a luxury hotel in central Beirut, killing individuals the IDF identified as Quds Force operatives but whom Iran said were diplomats. A Maronite Catholic priest was also killed by Israeli tank fire in southern Lebanon.</li>
-<li>Australia granted humanitarian visas to five members of the Iranian women's national soccer team who sought asylum after refusing to sing Iran's national anthem during a tournament, amid reports of threats against the players from Iranian state-affiliated commentators.</li>
-<li>The World Health Organization warned of health risks from "black rain" caused by strikes on Iranian oil facilities, while experts cautioned the war could lead to food shortages across Lebanon, Gaza, and Iran due to supply chain disruptions.</li>
+<li>The United States carried out what Defense Secretary Pete Hegseth called the "most intense" day of strikes on Iran since the war began on 28 February, with the Pentagon stating it destroyed 16 Iranian mine-laying vessels near the Strait of Hormuz as part of efforts to keep the oil transit route open.</li>
+<li>Israel launched what the IDF described as an "additional wave" of strikes on Iranian targets, including in Tehran; Iran's UN ambassador stated the death toll has surpassed 1,300 people, with nearly 10,000 civilian sites hit including approximately 8,000 residential homes. The New York Times cited a figure of more than 1,800 total deaths in the war.</li>
+<li>The Pentagon confirmed that 140 U.S. service members have been wounded since the conflict began, with eight in critical condition and seven Americans killed; U.S. officials acknowledged that Iran's military has shown adaptive capacity in targeting perceived American vulnerabilities.</li>
+<li>Lebanon's President Aoun called for talks with Israel to end the renewed Hezbollah conflict, as Israeli strikes on southern Beirut displaced more than 100,000 people in 24 hours; separately, Israel struck a luxury hotel in central Beirut, killing individuals it identified as Quds Force operatives, while Iran said they were diplomats.</li>
+<li>The Strait of Hormuz is effectively closed to commercial shipping, with oil prices spiking near $120 per barrel; the WHO warned of health risks from "black rain" caused by strikes on Iranian oil facilities, and experts cautioned the war could lead to food shortages across Lebanon, Gaza, and Iran.</li>
+<li>Australia granted humanitarian visas to five members of the Iranian women's soccer team who sought asylum after refusing to sing the Iranian national anthem during a tournament, citing fears of persecution upon return.</li>
 </ul>
   </div>
   <div class='analysis-box expect'>
     <div class='box-label'>Forward Look</div>
     <h2>What to Expect Next</h2>
    <ul>
-<li>With the Strait of Hormuz effectively closed and oil prices spiking near $120 per barrel, analysts expect mounting economic pressure on Gulf states and global markets; historically, prolonged disruptions to Hormuz—through which roughly 20% of global oil passes—have triggered recessions and forced diplomatic interventions.</li>
-<li>Lebanon's call for negotiations with Israel, combined with the expanding humanitarian crisis and displacement of over 667,000 people, suggests intensified international diplomatic efforts may emerge in coming days, though historically Israel-Hezbollah de-escalation has required protracted mediation, often involving the United Nations.</li>
-<li>Criticism from U.S. Democrats, the German Chancellor, and allied governments over the lack of a clear endgame—combined with President Trump's conflicting public statements—historically points toward growing domestic and international pressure that may force the administration to articulate defined war aims or accept a ceasefire framework.</li>
-<li>Iran's adaptive military tactics, including threats against Hormuz shipping and retaliatory strikes intercepted by Gulf states, suggest the conflict may increasingly draw in regional actors; analysts expect Gulf nations facing dwindling oil storage capacity may press Washington for de-escalation to resume exports.</li>
-<li>The widening economic ripple effects—including Pakistan's school closures and spending cuts, rising food prices across the region, and disrupted global shipping—indicate that humanitarian and economic consequences may escalate significantly if the conflict extends further, historically a pattern that accelerates multilateral pressure for cessation of hostilities.</li>
+<li>Historically, prolonged closure of the Strait of Hormuz — through which roughly 20% of global oil passes — has severe cascading effects on energy prices and supply chains; analysts expect continued disruption could push oil prices higher and trigger broader economic consequences, as already seen with Pakistan announcing school closures and spending cuts.</li>
+<li>Lebanon's call for negotiations with Israel mirrors past patterns where escalating humanitarian costs prompted diplomatic openings; however, analysts note that without a broader ceasefire framework involving Iran, a standalone Lebanon-Israel agreement may prove difficult to sustain given Hezbollah's operational ties to Tehran.</li>
+<li>The German Chancellor's public concern about the absence of a joint U.S.-Israeli exit strategy, combined with Democratic lawmakers' criticism of unclear war goals, suggests growing international and domestic political pressure that historically has constrained the duration and scope of U.S. military campaigns abroad.</li>
+<li>Reports of Russian military assistance to Iran echo Cold War-era proxy dynamics; analysts expect that if such support continues or escalates, it could complicate U.S. operational planning and increase the risk of direct great-power friction in the theater.</li>
+<li>Iran's adaptive military tactics, acknowledged by U.S. officials, and its threats against shipping suggest Tehran may increasingly rely on asymmetric responses — including mining, missile strikes on Gulf infrastructure, and regional proxy activation — a pattern consistent with Iranian strategic doctrine developed since the 1980s Iran-Iraq war.</li>
 </ul>
   </div>
 </div>
@@ -735,7 +767,21 @@ function filterCards(source) {
 </div>
 <div class='card' data-source='France 24'>
   <div class='card-image'>
-    <img src='C:\Users\YDR\OneDrive\Documents\News Scraper\index_files\Video_shows_US_Tomahawk_missile_strike_next_to_bom_0.jpg' alt='' loading='lazy'>
+    <img src='C:\Users\YDR\OneDrive\Documents\News Scraper\index_files\Trump_says_US_destroying_Iranian_mine-laying_boats_0.jpg' alt='' loading='lazy'>
+  </div>
+  <div class='card-body'>
+    <div class='card-top'>
+      <span class='source-badge' style='background:#003f87'>France 24</span>
+      <span class='date-label'>2026-03-10</span>
+    </div>
+    <div class='card-title'>Trump says US destroying Iranian mine-laying boats</div>
+    <a class='read-link' href='https://www.france24.com/en/trump-says-us-destroying-iranian-mine-laying-boats' target='_blank'>Read full article &rarr;</a>
+    <div class='card-summary'>The U.S. military "eliminated" 16 Iranian mine-laying vessels near the Strait of Hormuz on Tuesday, the U.S. Central Command said in a statement, as President Donald Trump warned that any ​mines laid in ‌the Strait by Iran must be removed immediately. Trump previously said the U.S. had "completely destroyed" ⁠10 inactive mine-laying vessels. FRANCE 24's Fraser Jackson reports from Washington.</div>
+  </div>
+</div>
+<div class='card' data-source='France 24'>
+  <div class='card-image'>
+    <img src='C:\Users\YDR\OneDrive\Documents\News Scraper\index_files\Video_shows_US_Tomahawk_missile_strike_next_to_bom_1.jpg' alt='' loading='lazy'>
   </div>
   <div class='card-body'>
     <div class='card-top'>
@@ -749,7 +795,7 @@ function filterCards(source) {
 </div>
 <div class='card' data-source='France 24'>
   <div class='card-image'>
-    <img src='C:\Users\YDR\OneDrive\Documents\News Scraper\index_files\Trump's_war__What's_the_endgame_in_Iran__1.jpg' alt='' loading='lazy'>
+    <img src='C:\Users\YDR\OneDrive\Documents\News Scraper\index_files\Trump's_war__What's_the_endgame_in_Iran__2.jpg' alt='' loading='lazy'>
   </div>
   <div class='card-body'>
     <div class='card-top'>
@@ -763,7 +809,7 @@ function filterCards(source) {
 </div>
 <div class='card' data-source='France 24'>
   <div class='card-image'>
-    <img src='C:\Users\YDR\OneDrive\Documents\News Scraper\index_files\Kharg_Island__Iran’s_‘untouchable’_oil_artery__2.jpg' alt='' loading='lazy'>
+    <img src='C:\Users\YDR\OneDrive\Documents\News Scraper\index_files\Kharg_Island__Iran’s_‘untouchable’_oil_artery__3.jpg' alt='' loading='lazy'>
   </div>
   <div class='card-body'>
     <div class='card-top'>
@@ -777,7 +823,7 @@ function filterCards(source) {
 </div>
 <div class='card' data-source='France 24'>
   <div class='card-image'>
-    <img src='C:\Users\YDR\OneDrive\Documents\News Scraper\index_files\Israeli_strikes_pound_south_of_Beirut,_displacing__3.jpg' alt='' loading='lazy'>
+    <img src='C:\Users\YDR\OneDrive\Documents\News Scraper\index_files\Israeli_strikes_pound_south_of_Beirut,_displacing__4.jpg' alt='' loading='lazy'>
   </div>
   <div class='card-body'>
     <div class='card-top'>
@@ -791,7 +837,7 @@ function filterCards(source) {
 </div>
 <div class='card' data-source='France 24'>
   <div class='card-image'>
-    <img src='C:\Users\YDR\OneDrive\Documents\News Scraper\index_files\New_footage_raises_likelihood_the_US_struck_Irania_4.jpg' alt='' loading='lazy'>
+    <img src='C:\Users\YDR\OneDrive\Documents\News Scraper\index_files\New_footage_raises_likelihood_the_US_struck_Irania_5.jpg' alt='' loading='lazy'>
   </div>
   <div class='card-body'>
     <div class='card-top'>
@@ -805,7 +851,7 @@ function filterCards(source) {
 </div>
 <div class='card' data-source='France 24'>
   <div class='card-image'>
-    <img src='C:\Users\YDR\OneDrive\Documents\News Scraper\index_files\Iran_targeted_by_fresh_strikes_as_US_warns_of_'mos_5.jpg' alt='' loading='lazy'>
+    <img src='C:\Users\YDR\OneDrive\Documents\News Scraper\index_files\Iran_targeted_by_fresh_strikes_as_US_warns_of_'mos_6.jpg' alt='' loading='lazy'>
   </div>
   <div class='card-body'>
     <div class='card-top'>
@@ -819,7 +865,7 @@ function filterCards(source) {
 </div>
 <div class='card' data-source='France 24'>
   <div class='card-image'>
-    <img src='C:\Users\YDR\OneDrive\Documents\News Scraper\index_files\Kharg_Island__Iran’s_‘untouchable’_oil_artery__6.jpg' alt='' loading='lazy'>
+    <img src='C:\Users\YDR\OneDrive\Documents\News Scraper\index_files\Kharg_Island__Iran’s_‘untouchable’_oil_artery__7.jpg' alt='' loading='lazy'>
   </div>
   <div class='card-body'>
     <div class='card-top'>
@@ -833,7 +879,7 @@ function filterCards(source) {
 </div>
 <div class='card' data-source='France 24'>
   <div class='card-image'>
-    <img src='C:\Users\YDR\OneDrive\Documents\News Scraper\index_files\Five_Iranian_women_football_players_granted_asylum_7.jpg' alt='' loading='lazy'>
+    <img src='C:\Users\YDR\OneDrive\Documents\News Scraper\index_files\Five_Iranian_women_football_players_granted_asylum_8.jpg' alt='' loading='lazy'>
   </div>
   <div class='card-body'>
     <div class='card-top'>
@@ -847,7 +893,7 @@ function filterCards(source) {
 </div>
 <div class='card' data-source='France 24'>
   <div class='card-image'>
-    <img src='C:\Users\YDR\OneDrive\Documents\News Scraper\index_files\Iran_war_stifles_Hormuz_shipping__‘Unprecedented’__8.jpg' alt='' loading='lazy'>
+    <img src='C:\Users\YDR\OneDrive\Documents\News Scraper\index_files\Iran_war_stifles_Hormuz_shipping__‘Unprecedented’__9.jpg' alt='' loading='lazy'>
   </div>
   <div class='card-body'>
     <div class='card-top'>
@@ -857,20 +903,6 @@ function filterCards(source) {
     <div class='card-title'>Iran war stifles Hormuz shipping: ‘Unprecedented’ impact on oil & global economy</div>
     <a class='read-link' href='https://www.france24.com/en/iran-war-stifles-shipping-through-hormuz-unprecedented-fallout-for-oil-markets-global-economy-1' target='_blank'>Read full article &rarr;</a>
     <div class='card-summary'>FRANCE 24's François Picard welcomes Jon Marks, author, political scientist and chairman/founder of Cross-border Information. Having followed energy markets for decades, Marks warns that we are in uncharted…</div>
-  </div>
-</div>
-<div class='card' data-source='France 24'>
-  <div class='card-image'>
-    <img src='C:\Users\YDR\OneDrive\Documents\News Scraper\index_files\Trump_says_war_in_Iran_will_end_'soon'_–_but_threa_9.jpg' alt='' loading='lazy'>
-  </div>
-  <div class='card-body'>
-    <div class='card-top'>
-      <span class='source-badge' style='background:#003f87'>France 24</span>
-      <span class='date-label'>2026-03-10</span>
-    </div>
-    <div class='card-title'>Trump says war in Iran will end 'soon' – but threatens to escalate</div>
-    <a class='read-link' href='https://www.france24.com/en/video/20260310-trump-says-war-in-iran-will-end-soon-%E2%80%93-but-threatens-to-escalate' target='_blank'>Read full article &rarr;</a>
-    <div class='card-summary'>Asked about how long US strikes in #Iran would last for, Donald #Trump assured the #war would end 'very soon'. But soon after, he threatened to escalate the conflict by striking Iran "twenty times harder" if it stopped the oil flow going through the Strait of #Hormuz.</div>
   </div>
 </div>
 <div class='card' data-source='DW News'>
